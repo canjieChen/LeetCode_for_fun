@@ -23,6 +23,7 @@
 1 <= m <= 10^6
 """
 
+
 class Solution(object):
     def lastRemaining(self, n, m):
         """
@@ -30,13 +31,13 @@ class Solution(object):
         :type m: int
         :rtype: int
         """
-        a = range(n)
+        a = list(range(n))
         while len(a) != 1:
             if m > len(a):
                 if m % 2 == 0:
                     a = a[:-1]
                 else:
-                    a = a[m % 2:] + a[: m % 2 - 1]
+                    a = a[m % len(a):] + a[: m % len(a) - 1]
             else:
                 a = a[m:] + a[:m - 1]
         else:
